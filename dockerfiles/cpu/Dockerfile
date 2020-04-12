@@ -5,6 +5,8 @@ FROM tensorflow/tensorflow:latest-py3
 ENV LC_ALL C.UTF-8
 
 # install system packages
+ENV DEBIAN_FRONTEND=noninteractive
+RUN apt-get -y install tzdata
 
 RUN apt-get clean \
  && apt-get update --fix-missing \
@@ -18,8 +20,7 @@ RUN apt-get clean \
     zlib1g-dev \
     libjpeg8-dev \
     libtiff5-dev \
-    libjasper-dev \
-    libpng12-dev \
+    libpng-dev \
     tcl-dev \
     tk-dev \
     python3 \
